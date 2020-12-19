@@ -17,8 +17,8 @@ TrBase::SetTraddingRange("rb",  QString("09:00:00-10:15:00;10:30:00-11:30:00;13:
 class TRBASE_EXPORT TrBase
 {
 public:
-// 获取合约信息
-    static TrContractField get(QString code);
+	// 获取合约信息
+    static TrProductField get(QString code);
 	// 获取当前合约数量
 	static int count();
 	// 获取合约产品名称
@@ -27,6 +27,8 @@ public:
     static QString NameMonth(QString code);
 	// 获取交易所ID
     static QString ExchangeID(QString code);
+    // 获取交易所所有产品列表
+    static QStringList ExchangeProducts(QString ExchangeID);
 	// 获取最小变动单位
     static double PriceTick(QString code);
 	// 获取合约乘数
@@ -39,8 +41,12 @@ public:
     static void SetTraddingRange(QString code, QString range);
     // 获取合约产品交易时间段
     static QString TraddingRange(QString code);
-    // 判断当前是否处于交易时间段
-    static bool IsTradding(QString code);
+    // 设置合约信息 可以配合 tradespi OnRspQryInstrument 来添加所有的合约信息
+    static void SetInstrument(CThostFtdcInstrumentField Instrument);
+    // 获取合约信息
+    static CThostFtdcInstrumentField Instrument(QString InstrumentID);
+    // 合约信息是否存在
+    static bool Exist(QString InstrumentID);
 };
 ```
 
