@@ -15,7 +15,7 @@
 // TrBase QT 版
 
 // 合约品种信息
-struct TrContractField
+struct TrProductField
 {
 	///交易所代码
 	TThostFtdcExchangeIDType	ExchangeID;
